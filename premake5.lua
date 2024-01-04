@@ -1,9 +1,11 @@
 project "yaml-cpp"
 	kind "StaticLib"
 	language "C++"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	cppdialect "C++20"
+	staticruntime "off"
+	architecture "x64"
+	targetdir ("%{wks.location}/bin/" .. outputdir)
+	objdir ("%{wks.location}/bin-int/" .. tmpdir)
 
 	files
 	{
@@ -25,14 +27,10 @@ project "yaml-cpp"
 
 	filter "system:windows"
 		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "off"
 
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "off"
 
 	filter "configurations:Debug"
 		runtime "Debug"

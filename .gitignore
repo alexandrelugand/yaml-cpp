@@ -5,3 +5,13 @@ bin
 bin-int
 yaml-cpp.vcxproj
 yaml-cpp.vcxproj.filters
+
+# Makefiles
+Makefile
+!Makefile.**.mk
+
+# Visual studio
+.vs
+*.sln
+*.vcxproj
+*.vcxproj.*
